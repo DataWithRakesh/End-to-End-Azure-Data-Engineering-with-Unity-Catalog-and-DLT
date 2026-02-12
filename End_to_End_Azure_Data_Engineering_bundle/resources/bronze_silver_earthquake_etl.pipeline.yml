@@ -1,0 +1,19 @@
+# The main pipeline for End_to_End_Azure_Data_Engineering_bundle
+
+resources:
+  pipelines:
+    bronze_silver_earthquake_etl:
+      name: Eathquake_Bronze_Silver
+      configuration:
+        catalog_name: ${var.catalog}
+      libraries:
+        - glob:
+            include: ../src/DLT_pipelines/Earthquake_Bronze_Silver/transformations/**
+      schema: silver
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog}
+      serverless: true
+      root_path: ../src/DLT_pipelines/Earthquake_Bronze_Silver
