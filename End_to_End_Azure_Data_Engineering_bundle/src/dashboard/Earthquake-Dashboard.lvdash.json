@@ -1,0 +1,195 @@
+{
+  "datasets": [
+    {
+      "name": "c1ef337f",
+      "displayName": "EarthQuake_Details",
+      "queryLines": [
+        "select * from earthquake_dev.silver.earthquake_data_final"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "2d3109ed",
+      "displayName": "EarthQuake-DashBoard",
+      "layout": [
+        {
+          "widget": {
+            "name": "977a1e83",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# EARTHQUAKE DASHBOARD"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "bb856a7d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "c1ef337f",
+                  "fields": [
+                    {
+                      "name": "mag",
+                      "expression": "`mag`"
+                    },
+                    {
+                      "name": "place",
+                      "expression": "`place`"
+                    },
+                    {
+                      "name": "time",
+                      "expression": "`time`"
+                    },
+                    {
+                      "name": "status",
+                      "expression": "`status`"
+                    },
+                    {
+                      "name": "tsunami",
+                      "expression": "`tsunami`"
+                    },
+                    {
+                      "name": "url",
+                      "expression": "`url`"
+                    },
+                    {
+                      "name": "alert",
+                      "expression": "`alert`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showDescription": true,
+                "description": "Earthquake Detail"
+              },
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "mag"
+                  },
+                  {
+                    "fieldName": "place"
+                  },
+                  {
+                    "fieldName": "time"
+                  },
+                  {
+                    "fieldName": "status"
+                  },
+                  {
+                    "fieldName": "tsunami"
+                  },
+                  {
+                    "fieldName": "url"
+                  },
+                  {
+                    "fieldName": "alert"
+                  }
+                ]
+              }
+            },
+            "specExtensions": {
+              "widgetBorderColor": {
+                "light": "#E61C1CUNDEFINED"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "c1f5c473",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "c1ef337f",
+                  "fields": [
+                    {
+                      "name": "latitude",
+                      "expression": "`latitude`"
+                    },
+                    {
+                      "name": "longitude",
+                      "expression": "`longitude`"
+                    },
+                    {
+                      "name": "tsunami",
+                      "expression": "`tsunami`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "mark": {
+                "size": -2.8
+              },
+              "widgetType": "symbol-map",
+              "encodings": {
+                "coordinates": {
+                  "latitude": {
+                    "fieldName": "latitude"
+                  },
+                  "longitude": {
+                    "fieldName": "longitude"
+                  }
+                },
+                "size": {
+                  "fieldName": "tsunami",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              }
+            },
+            "specExtensions": {
+              "widgetBackgroundColor": {
+                "light": "#D50E0EUNDEFINED"
+              },
+              "widgetBorderColor": {
+                "light": "#BC1212UNDEFINED"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
